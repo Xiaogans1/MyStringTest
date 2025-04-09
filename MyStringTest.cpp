@@ -15,7 +15,7 @@ int main()
 	str4 = std::move(str2);
 
 	MyString str5(5);
-	// MyString str6 = 5;
+	MyString str6 = 5;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
