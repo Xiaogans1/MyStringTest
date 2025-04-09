@@ -41,6 +41,18 @@ MyString::MyString(const char* ch)
 	}
 }
 
+MyString::MyString(size_t len)
+{
+	m_ch = new char[len];
+	m_len = len - 1;
+	m_allc = len;
+	if (m_ch == nullptr)
+	{
+		exit(-1);
+	}
+	m_ch[len - 1] = '\0';
+}
+
 MyString::MyString(const MyString& ob)
 {
 	size_t len = strlen(ob.m_ch);

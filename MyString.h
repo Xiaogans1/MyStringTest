@@ -6,6 +6,7 @@ public:
 	MyString();
 	// 3¸ö¹¹Ôì
 	MyString(const char* ch);
+	explicit MyString(size_t len);
 	MyString(const MyString& ob);
 	MyString(MyString&& ob);
 
