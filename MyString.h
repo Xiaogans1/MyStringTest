@@ -14,6 +14,7 @@ public:
 	MyString& operator=(const MyString& ob);
 	MyString& operator=(MyString&& ob);
 	
+	//MyString operator + (const MyString& ob);
 	// 1¸öÎö¹¹
 	~MyString();
 private:

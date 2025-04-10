@@ -4,18 +4,49 @@
 #include <iostream>
 #include "MyString.h"
 
+void mySwap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+void printMyStringInfo(MyString& myStr)
+{
+	std::cout << sizeof(myStr) << std::endl;
+}
+
 int main()
 {
-	MyString str1("hi");
-	MyString str2(str1);
-	MyString str3(std::move(str1));
+	int a = 1;
+	int&& move_a = std::move(a);
+	std::cout << a << std::endl;
+	std::cout << move_a << std::endl;
+	//int x = 1, y = 2;
+	//++x = 1;
+	//x++ = 2;
+	//std::cout << "x = " << x << ", y = " << y << std::endl;
+	//mySwap(x, y);
+	//std::cout << "x = " << x << ", y = " << y << std::endl;*/
+	//
+	//MyString strT("hello");
+	//printMyStringInfo(strT);
+	//MyString str1("hi");  // 
+	//MyString str2(str1);  // 左值引用传递方式
+	//MyString str3 = std::move(str1); // 有名字右值引用传递方式 --> static_cast<MyString&&>(str1)
 
-	MyString str4;
-	str4 = str3;
-	str4 = std::move(str2);
+	//std::cout << &"hi" << std::endl; // 字符串字面量是有地址的左值
+	//const char* p1 = "hi";
+	//const char* p2 = "hi";
+	
+	//std::cout << &(std::move(str1)) << std::endl; // 右值无法取地址
+	//MyString str4;
+	//str4 = str3;
+	//(str4 = str3) = str2;
+	//str4 = std::move(str2);
 
-	MyString str5(5);
-	MyString str6 = 5;
+	//MyString str5(5);
+	//MyString str6 = 5;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

@@ -74,6 +74,8 @@ MyString::MyString(MyString&& ob)
 		m_len = ob.m_len;
 		m_allc = ob.m_allc;
 		ob.m_ch = nullptr;
+		ob.m_len = 0;
+		ob.m_allc = 0;
 	}
 }
 
@@ -82,7 +84,7 @@ MyString& MyString::operator=(const MyString& ob)
 	// 判断是否自身赋值
 	if (this != &ob)
 	{
-		//  释放原有内存
+		// 清空自身的资源
 		delete[] m_ch;
 
 		// 充分分配空间
@@ -109,6 +111,8 @@ MyString& MyString::operator=(MyString&& ob)
 		m_len = ob.m_len;
 		m_allc = ob.m_allc;
 		ob.m_ch = nullptr;
+		ob.m_allc = 0;
+		ob.m_len = 0;
 	}
 
 	return *this;
