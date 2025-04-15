@@ -46,14 +46,36 @@ MyString funcGetStringComplicated(int i)
 
 int main()
 {
-	cout << "funcGetString" << endl;
-	MyString s1 = funcGetString();
+	// 演示const修饰部分：看最近的左侧部分，左侧没有则看右侧
+	const int  MAX_LEN = 2048;
+	//MAX_LEN = 1024; // 无法改变
+	const std::string className = "MoonCpp";
+	//className = "MoonCPP1"; // 无法改变
+	int a = 1;
+	int b = 2;
+	int c = 3;
+	const int* p = &a;
+	a = 2;
+	//*p = 2; // 无法改变，修饰的是指针指向的部分
+	p = &b; // 可以改变指针的指向
+	int* const p2 = &b;
+	//p2 = &a; // 无法改变， 修饰的是指针本身
+	*p2 = 3;
+	int const* const p3 = &c;
+	//*p3 = 4; 
+	// p3 = &b // 无法改变，修饰的是指针指向的部分和指针本身
+	
+	MyString constStringTest("constStringTest");
+	const MyString& refStringTest = constStringTest.GetString();
+	
+	//cout << "funcGetString" << endl;
+	//MyString s1 = funcGetString();
 
-	cout << "funcGetStringWithMore" << endl;
-	MyString s2 = funcGetStringWithMore();
+	//cout << "funcGetStringWithMore" << endl;
+	//MyString s2 = funcGetStringWithMore();
 
-	cout << "funcGetStringComplicated" << endl;
-	MyString s3 = funcGetStringComplicated(1);
+	//cout << "funcGetStringComplicated" << endl;
+	//MyString s3 = funcGetStringComplicated(1);
 	//int a = 1;
 	//int&& move_a = std::move(a);
 	//std::cout << a << std::endl;
