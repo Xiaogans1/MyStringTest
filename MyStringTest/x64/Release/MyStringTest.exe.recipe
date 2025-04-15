@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Admin\source\repos\MyStringTest\x64\Debug\MyStringTest.exe</FullPath>
+      <FullPath>C:\Users\Admin\source\repos\MyStringTest\x64\Release\MyStringTest.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

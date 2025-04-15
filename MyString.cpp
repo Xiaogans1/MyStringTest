@@ -1,6 +1,8 @@
 #include "MyString.h"
 #include <string.h>
 #include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 MyString::MyString()
 {
@@ -12,6 +14,7 @@ MyString::MyString()
 	*m_ch = '\0';
 	m_len = 0;
 	m_allc = 1;	
+	cout << "MyString()" << endl;
 }
 
 MyString::MyString(const char* ch)
@@ -39,6 +42,7 @@ MyString::MyString(const char* ch)
 		}
 		strcpy(m_ch, ch);
 	}
+	cout << "MyString(const char* ch)" << endl;
 }
 
 MyString::MyString(size_t len)
@@ -51,6 +55,7 @@ MyString::MyString(size_t len)
 		exit(-1);
 	}
 	m_ch[len - 1] = '\0';
+	cout << "MyString(size_t len)" << endl;
 }
 
 MyString::MyString(const MyString& ob)
@@ -64,6 +69,7 @@ MyString::MyString(const MyString& ob)
 		exit(-1);
 	}
 	strcpy(m_ch, ob.m_ch);
+	cout << "MyString(const MyString& ob)" << endl;
 }
 
 MyString::MyString(MyString&& ob)
@@ -77,6 +83,7 @@ MyString::MyString(MyString&& ob)
 		ob.m_len = 0;
 		ob.m_allc = 0;
 	}
+	cout << "MyString(MyString&& ob)" << endl;
 }
 
 MyString& MyString::operator=(const MyString& ob)
@@ -101,6 +108,7 @@ MyString& MyString::operator=(const MyString& ob)
 	}
 	// 返回当前对象的引用
 	return *this;
+	cout << "operator=(const MyString& ob)" << endl;
 }
 MyString& MyString::operator=(MyString&& ob)
 {
@@ -116,10 +124,12 @@ MyString& MyString::operator=(MyString&& ob)
 	}
 
 	return *this;
+	cout << "operator=(MyString&& ob)" << endl;
 }
 
 MyString::~MyString()
 {
 	delete[] m_ch;
 	m_ch = nullptr;
+	//cout << "~MyString()" << endl;
 }
