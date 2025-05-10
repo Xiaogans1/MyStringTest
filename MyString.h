@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+
 class MyString final
 {
 public:
@@ -17,9 +20,33 @@ public:
 	//MyString operator + (const MyString& ob);
 	// 1¸öÎö¹¹
 	~MyString();
+
+	const MyString& GetString()
+	{
+		m_refCount++;
+		return *this;
+	}
+
+	void PrintStringInfo() const
+	{
+		m_refCount++;
+		cout << this->m_ch << endl;
+	}
+
+	size_t GetLen() const
+	{
+		m_refCount++;
+		return this->m_len;
+	}
+
+	//void SetLen(size_t len)
+	//{
+	//	m_len = len;	
+	//}
 private:
 	char* m_ch;
 	size_t m_len;
 	size_t m_allc;
+	//mutable int m_refCount;
 };
 

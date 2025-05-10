@@ -66,8 +66,20 @@ int main()
 	// p3 = &b // 无法改变，修饰的是指针指向的部分和指针本身
 	
 	MyString constStringTest("constStringTest");
+	//constStringTest.SetLen(10); 这样设置不合理
+
 	const MyString& refStringTest = constStringTest.GetString();
-	
+	//refStringTest = constStringTest2; // 无法改变
+	//refStringTest.SetLen(10);
+
+	refStringTest.PrintStringInfo();
+	cout << refStringTest.GetLen() << endl;
+
+	// volatile的使用
+	const volatile int MIN_LEN = 10;
+	int* ptr = (int*)(&MIN_LEN) ; // 无法改变
+	*ptr = 11;
+	cout << MIN_LEN << endl; // 10
 	//cout << "funcGetString" << endl;
 	//MyString s1 = funcGetString();
 
