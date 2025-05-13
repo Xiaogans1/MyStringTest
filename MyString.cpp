@@ -4,16 +4,15 @@
 #include <iostream>
 using namespace std;
 
-MyString::MyString()
+Encoding MyString::s_encoding = UTF8;
+MyString::MyString(): m_len(0), m_allc(1), m_available(m_allc - m_len)
 {
-	m_ch = new char[1];
+	m_ch = new char[1]; // 一般来说不能在构造函数中直接new, 有可能抛出异常
 	if (m_ch == nullptr)
 	{
 		exit(-1);
 	}
 	*m_ch = '\0';
-	m_len = 0;
-	m_allc = 1;	
 	cout << "MyString()" << endl;
 }
 

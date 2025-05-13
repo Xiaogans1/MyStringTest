@@ -46,40 +46,45 @@ MyString funcGetStringComplicated(int i)
 
 int main()
 {
-	// 演示const修饰部分：看最近的左侧部分，左侧没有则看右侧
-	const int  MAX_LEN = 2048;
-	//MAX_LEN = 1024; // 无法改变
-	const std::string className = "MoonCpp";
-	//className = "MoonCPP1"; // 无法改变
-	int a = 1;
-	int b = 2;
-	int c = 3;
-	const int* p = &a;
-	a = 2;
-	//*p = 2; // 无法改变，修饰的是指针指向的部分
-	p = &b; // 可以改变指针的指向
-	int* const p2 = &b;
-	//p2 = &a; // 无法改变， 修饰的是指针本身
-	*p2 = 3;
-	int const* const p3 = &c;
+	// 剖析构造函数
+	MyString str1;
+	cout << MyString::GetEncoding() << endl;
+	MyString::SetEncoding(ASCLL);
+	cout << MyString::GetEncoding() << endl;
+	//// 演示const修饰部分：看最近的左侧部分，左侧没有则看右侧
+	//const int  MAX_LEN = 2048;
+	////MAX_LEN = 1024; // 无法改变
+	//const std::string className = "MoonCpp";
+	////className = "MoonCPP1"; // 无法改变
+	//int a = 1;
+	//int b = 2;
+	//int c = 3;
+	//const int* p = &a;
+	//a = 2;
+	////*p = 2; // 无法改变，修饰的是指针指向的部分
+	//p = &b; // 可以改变指针的指向
+	//int* const p2 = &b;
+	////p2 = &a; // 无法改变， 修饰的是指针本身
+	//*p2 = 3;
+	//int const* const p3 = &c;
 	//*p3 = 4; 
 	// p3 = &b // 无法改变，修饰的是指针指向的部分和指针本身
 	
-	MyString constStringTest("constStringTest");
-	//constStringTest.SetLen(10); 这样设置不合理
+	//MyString constStringTest("constStringTest");
+	////constStringTest.SetLen(10); 这样设置不合理
 
-	const MyString& refStringTest = constStringTest.GetString();
-	//refStringTest = constStringTest2; // 无法改变
-	//refStringTest.SetLen(10);
+	//const MyString& refStringTest = constStringTest.GetString();
+	////refStringTest = constStringTest2; // 无法改变
+	////refStringTest.SetLen(10);
 
-	refStringTest.PrintStringInfo();
-	cout << refStringTest.GetLen() << endl;
+	//refStringTest.PrintStringInfo();
+	//cout << refStringTest.GetLen() << endl;
 
 	// volatile的使用
-	const volatile int MIN_LEN = 10;
-	int* ptr = (int*)(&MIN_LEN) ; // 无法改变
-	*ptr = 11;
-	cout << MIN_LEN << endl; // 10
+	//const volatile int MIN_LEN = 10;
+	//int* ptr = (int*)(&MIN_LEN) ; // 无法改变
+	//*ptr = 11;
+	//cout << MIN_LEN << endl; // 10
 	//cout << "funcGetString" << endl;
 	//MyString s1 = funcGetString();
 
